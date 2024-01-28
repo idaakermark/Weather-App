@@ -24,3 +24,6 @@ const Search = ({ handleSearch, setLocation }:InputProps) => {
 }
 
 export default Search
+
+
+
