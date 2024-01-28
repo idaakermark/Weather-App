@@ -8,3 +8,4 @@ export const getCurrentDate = () => {
     })
     return currentDate
 }
+
