@@ -12,13 +12,16 @@ interface DayForecast {
 
 interface WeatherWeekProps {
     data: {
-        forecast: {
+        forecast?: {
             forecastday: DayForecast[]
         }
     }
 }
 
 const WeatherWeek = ({ data }: WeatherWeekProps) => { 
+    if (!data.forecast) {
+        return null;
+    }
     return (
         <>
         <h1 className='text-white text-2xl pb-4'>Weather this week</h1>

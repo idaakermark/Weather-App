@@ -5,11 +5,11 @@ import { BsSunset } from "react-icons/bs";
 
 interface WeatherDetailsProps {
     data: {
-        current: {
+        current?: {
             wind_kph: number
             humidity: number
         }
-        forecast: {
+        forecast?: {
             forecastday: {
                 astro: {
                     sunrise: string
@@ -21,6 +21,10 @@ interface WeatherDetailsProps {
 }
 
 const WeatherDetails = ({ data }:WeatherDetailsProps) => {
+    if (!data.current) {
+        return null;
+    }
+
     return (
         <div className='p-12'>
                 <div className='bg-white/50 p-6 items-center justify-center gap-6 rounded-xl'>
@@ -28,8 +32,8 @@ const WeatherDetails = ({ data }:WeatherDetailsProps) => {
                     <div className='text-xl'>
                         <p className='flex gap-2 pb-4'><FiWind/> {data.current.wind_kph} kph</p>
                         <p className='flex gap-2 pb-4'><WiHumidity/> {data.current.humidity}%</p>
-                        <p className='flex gap-2 pb-4'><BsSunrise/> {data.forecast.forecastday[0].astro.sunrise}</p>
-                        <p className='flex gap-2 pb-3'><BsSunset/> {data.forecast.forecastday[0].astro.sunset}</p>
+                        <p className='flex gap-2 pb-4'><BsSunrise/> {data.forecast?.forecastday[0]?.astro.sunrise}</p>
+                        <p className='flex gap-2 pb-3'><BsSunset/> {data.forecast?.forecastday[0]?.astro.sunset}</p>
                     </div>
                 </div>
         </div>

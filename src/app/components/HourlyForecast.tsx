@@ -2,7 +2,7 @@ import React from 'react'
 
 interface HourlyForecastProps {
   data: {
-    forecast: {
+    forecast?: {
       forecastday: [
         {
           hour: Array<{
